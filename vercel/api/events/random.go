@@ -6,6 +6,8 @@ import (
 	"io"
 	"net/http"
 	"os"
+
+	dac "github.com/xinsnake/go-http-digest-auth-client"
 )
 
 type User struct {
@@ -21,15 +23,13 @@ func RandomE(w http.ResponseWriter, r *http.Request) {
 	// API User
 	baseAPIURL := os.Getenv("DATA_APP_BASE_URL")
 	randomEventsURL := baseAPIURL + "/v1/events/random" //?limit=${limit}'
+	req, _ := http.NewRequest("GET", randomEventsURL, nil)
 
 	apiPublicKey := os.Getenv("DATA_APP_PUBLIC_KEY")
 	apiPrivateKey := os.Getenv("DATA_APP_PRIVATE_KEY")
+	t := dac.NewTransport(apiPublicKey, apiPrivateKey)
 	fmt.Println("apiPublicKey", apiPublicKey, "!", apiPrivateKey, "!!", baseAPIURL)
-
-	client := &http.Client{}
-	req, _ := http.NewRequest("GET", randomEventsURL, nil)
-	req.SetBasicAuth(apiPublicKey, apiPrivateKey)
-	res, _ := client.Do(req)
+	res, err := t.RoundTrip(req)
 
 	// Get the Location body
 	eventsBody, _ := io.ReadAll(res.Body)
