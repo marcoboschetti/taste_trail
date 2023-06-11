@@ -1,9 +1,8 @@
 {
-  "name": "template-go-vercel",
+  "name": "event_maker",
   "version": "1.0.0",
-  "repository": "https://github.com/riccardogiorato/template-go-vercel",
-  "author": "riccardogiorato <https://riccardogiorato.com/>",
-  "license": "MIT",
+  "repository": "https://github.com/marcoboschetti/event_maker",
+  "author": "marcoboschetti",
   "dependencies": {
     "vercel": "^28.16.12"
   },
