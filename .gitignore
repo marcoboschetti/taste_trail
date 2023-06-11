@@ -1,0 +1,4 @@
+vercel_api/.vercel
+vercel_api/site/.*
+vercel_api/node_modules
+
