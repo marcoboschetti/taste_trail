@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 
+	dto "/api/dto"
 	dac "github.com/xinsnake/go-http-digest-auth-client"
 )
 
@@ -30,12 +31,16 @@ func RandomE(w http.ResponseWriter, r *http.Request) {
 	t := dac.NewTransport(apiPublicKey, apiPrivateKey)
 	fmt.Println("apiPublicKey", apiPublicKey, "!", apiPrivateKey, "!!", baseAPIURL)
 	res, err := t.RoundTrip(req)
+	if err != nil {
+		fmt.Println("Error happened in JSON marshal. Err:", err)
+		return
+	}
 
 	// Get the Location body
 	eventsBody, _ := io.ReadAll(res.Body)
 	fmt.Println("eventsBody", string(eventsBody))
 
-	var userLocation map[string]interface{}
+	var userLocation dto.TiDBEventDto
 	json.Unmarshal([]byte(eventsBody), &userLocation)
 
 	// Response to client
