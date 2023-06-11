@@ -1,0 +1,26 @@
+[
+  {
+    "name": "/v1/events/random",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/v1/events/random",
+    "data_source": {
+      "cluster_id": 1379661944646197370
+    },
+    "params": [
+      {
+        "name": "limit",
+        "type": "number",
+        "required": 0,
+        "default": "5"
+      }
+    ],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 50
+    },
+    "sql_file": "sql/GET-v1-events-random.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  }
+]
