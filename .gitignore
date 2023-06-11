@@ -1,4 +1,2 @@
-vercel/.vercel
-vercel/site
-vercel/node_modules/*
-
+**/node_modules
+**/.vercel
