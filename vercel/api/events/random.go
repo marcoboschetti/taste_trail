@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -26,11 +25,10 @@ func RandomE(w http.ResponseWriter, r *http.Request) {
 	apiPublicKey := os.Getenv("DATA_APP_PUBLIC_KEY")
 	apiPrivateKey := os.Getenv("DATA_APP_PRIVATE_KEY")
 	fmt.Println("apiPublicKey", apiPublicKey, "!", apiPrivateKey, "!!", baseAPIURL)
-	encodedCredential := base64.StdEncoding.EncodeToString([]byte(fmt.Sprintf("%s:%s", apiPublicKey, apiPrivateKey)))
 
 	client := &http.Client{}
 	req, _ := http.NewRequest("GET", randomEventsURL, nil)
-	req.Header.Add("Authorization", fmt.Sprintf("Basic %s", encodedCredential))
+	req.SetBasicAuth(apiPublicKey, apiPrivateKey)
 	res, _ := client.Do(req)
 
 	// Get the Location body
