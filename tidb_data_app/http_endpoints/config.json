@@ -1,15 +1,15 @@
 [
   {
-    "name": "/v1/recipe/random",
+    "name": "Random recipe",
     "description": "",
     "method": "GET",
-    "endpoint": "/v1/events/random",
+    "endpoint": "/v1/recipe/random",
     "data_source": {
-      "cluster_id": 1379661944646197370
+      "cluster_id": 1379661944646167526
     },
     "params": [
       {
-        "name": "limit",
+        "name": "max_results",
         "type": "number",
         "required": 0,
         "default": "5"
@@ -19,7 +19,7 @@
       "timeout": 5000,
       "row_limit": 50
     },
-    "sql_file": "sql/GET-v1-events-random.sql",
+    "sql_file": "sql/GET-v1-recipe-random.sql",
     "type": "sql_endpoint",
     "return_type": "json"
   }
