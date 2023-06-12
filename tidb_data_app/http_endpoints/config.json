@@ -5,7 +5,7 @@
     "method": "GET",
     "endpoint": "/v1/recipe/random",
     "data_source": {
-      "cluster_id": 1379661944646167526
+      "cluster_id": 1379661944646197459
     },
     "params": [
       {
