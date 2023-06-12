@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"os"
 
-	dto "/api/dto"
 	dac "github.com/xinsnake/go-http-digest-auth-client"
 )
 
@@ -29,7 +28,7 @@ func RandomE(w http.ResponseWriter, r *http.Request) {
 	apiPublicKey := os.Getenv("DATA_APP_PUBLIC_KEY")
 	apiPrivateKey := os.Getenv("DATA_APP_PRIVATE_KEY")
 	t := dac.NewTransport(apiPublicKey, apiPrivateKey)
-	fmt.Println("apiPublicKey", apiPublicKey, "!", apiPrivateKey, "!!", baseAPIURL)
+
 	res, err := t.RoundTrip(req)
 	if err != nil {
 		fmt.Println("Error happened in JSON marshal. Err:", err)
@@ -40,18 +39,47 @@ func RandomE(w http.ResponseWriter, r *http.Request) {
 	eventsBody, _ := io.ReadAll(res.Body)
 	fmt.Println("eventsBody", string(eventsBody))
 
-	var userLocation dto.TiDBEventDto
-	json.Unmarshal([]byte(eventsBody), &userLocation)
+	var events TiDBEventsDto
+	json.Unmarshal([]byte(eventsBody), &events)
 
 	// Response to client
-	resp := make(map[string]string)
-	resp["weather"] = "TEST"
-	resp["raw_response"] = string(eventsBody)
-
-	jsonResp, err := json.Marshal(resp)
+	jsonResp, err := json.Marshal(events.Data.Rows)
 	if err != nil {
 		fmt.Println("Error happened in JSON marshal. Err:", err)
 	} else {
 		w.Write(jsonResp)
 	}
+}
+
+type TiDBEventsDto struct {
+	Type string `json:"type"`
+	Data struct {
+		// Columns []struct {
+		// 	Col      string `json:"col"`
+		// 	DataType string `json:"data_type"`
+		// 	Nullable bool   `json:"nullable"`
+		// } `json:"columns"`
+		Rows []struct {
+			Budget      string `json:"budget"`
+			Category    string `json:"category"`
+			Difficulty  string `json:"difficulty"`
+			GuestRange  string `json:"guest_range"`
+			ID          string `json:"id"`
+			Name        string `json:"name"`
+			Subcategory string `json:"subcategory"`
+			Tags        string `json:"tags"`
+			TodoList    string `json:"todo_list"`
+		} `json:"rows"`
+		// Result struct {
+		// 	Code      int      `json:"code"`
+		// 	Message   string   `json:"message"`
+		// 	StartMs   int64    `json:"start_ms"`
+		// 	EndMs     int64    `json:"end_ms"`
+		// 	Latency   string   `json:"latency"`
+		// 	RowCount  int      `json:"row_count"`
+		// 	RowAffect int      `json:"row_affect"`
+		// 	Limit     int      `json:"limit"`
+		// 	Databases []string `json:"databases"`
+		// } `json:"result"`
+	} `json:"data"`
 }
