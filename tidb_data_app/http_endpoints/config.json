@@ -1,6 +1,6 @@
 [
   {
-    "name": "/v1/events/random",
+    "name": "/v1/recipe/random",
     "description": "",
     "method": "GET",
     "endpoint": "/v1/events/random",
