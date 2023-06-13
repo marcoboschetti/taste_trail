@@ -1,81 +1,48 @@
+$(document).ready(function () {
+    window.onhashchange = function () {
+        var page = document.location.hash.substring(1);
+        moveToPage(page);
+    };
 
-
-$.getJSON("/api/recipes/random", events => {
-
-    var wrapper = $('#random-recipes');
-
-    events.forEach(recipe => {
-
-        console.log(recipe);
-        var tagsHtml = "";
-        recipe.tags.split(",").forEach(tag => {
-            tagsHtml += `<span class="badge rounded-pill badge-secondary">` + tag + `</span>`;
-
-        })
-
-
-        var cuisineVal = "International";
-        if (recipe.cuisine_type && recipe.cuisine_type != "None") {
-            cuisineVal = recipe.cuisine_type;
-        }
-
-        var cuisineChipHtml = `<span class="badge rounded-pill badge-primary">` + cuisineVal + `</span>`;
-
-        var eventCardHTML = `
-        <div class="col-lg-3 col-md-6 mb-3">
-        <div class="card">
-            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
-                <a href="#!">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                </a>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title recipe-title">`+ recipe.name + `</h5>
-                <hr class="my-4" />
-                <p class="cuisine-type-chip">`+ cuisineChipHtml + `</p>
-                <div class="row recipe-card-row">
-                    <div class="col-4">
-                        <p class="card-title">
-                            <i class="fa-solid fa-money-bills" style="color: #009b29;"></i> 
-                            `+ recipe.budget + `/10
-                        </p>
-                    </div>
-                    <div class="col-8">
-                        <p class="card-title">
-                            <i class="fa-regular fa-clock" style="color: #3400ff;"></i>
-                            `+ recipe.cooking_time + `
-                        </p>
-                    </div>
-                </div>
-                <div class="row recipe-card-row">
-                    <div class="col-4">
-                        <p class="card-title">
-                            <i class="fa-solid fa-dumbbell" style="color: #ffbe00;"></i>
-                            `+ recipe.difficulty_level + `/10
-                        </p>
-                    </div>
-                    <div class="col-8">   
-                        <p class="card-title">
-                            <i class="fa-solid fa-plate-wheat" style="color: #00e1ff;"></i>
-                            `+ recipe.serving_size + `
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer text-muted">
-                <p class="card-text recipe-ingredients-footer">`+ recipe.ingredients + `</h5>
-            </div>
-
-            <hr class="my-4" />
-            <p class="card-text">`+ recipe.instructions + `</p>
-            
-        </div>
-    </div>
-
-        `;
-        wrapper.append(eventCardHTML);
-    })
-
+    loadPageFromHash();
 });
 
+function loadPageFromHash(){
+    var page = document.location.hash;
+    if(page){
+        page = page.substring(1);
+    }else{
+        page = "page_index";
+    }
+    moveToPage(page);
+}
+
+function moveToPage(page){
+    // $(".nav-item.active").removeClass("active");
+    // $('a[href="#'+page+'"]').first().closest('.nav-item').addClass("active");
+    page = page.split("?")[0];
+    $("#page_content").load("/site/pages/" + page + ".html");
+}
+
+function _ajax_request(url, data, callback, type, method) {
+    if (jQuery.isFunction(data)) {
+        callback = data;
+        data = {};
+    }
+    return jQuery.ajax({
+        type: method,
+        url: url,
+        data: data,
+        success: callback,
+        dataType: type
+        });
+}
+
+jQuery.extend({
+    put: function(url, data, callback, type) {
+        return _ajax_request(url, data, callback, type, 'PUT');
+    },
+    delete: function(url, data, callback, type) {
+        return _ajax_request(url, data, callback, type, 'DELETE');
+    }
+});
