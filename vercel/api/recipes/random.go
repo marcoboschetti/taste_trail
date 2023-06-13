@@ -22,36 +22,42 @@ func RandomE(w http.ResponseWriter, r *http.Request) {
 
 	// API User
 	baseAPIURL := os.Getenv("DATA_APP_BASE_URL")
-	randomEventsURL := baseAPIURL + "/v1/events/random" //?limit=${limit}'
-	req, _ := http.NewRequest("GET", randomEventsURL, nil)
+	randomRecipesURL := baseAPIURL + "/v1/recipes/random?max_results=6" //?limit=${limit}'
+	req, reqErr := http.NewRequest("GET", randomRecipesURL, nil)
+	if reqErr != nil {
+		w.Write([]byte(reqErr.Error()))
+		return
+	}
 
 	apiPublicKey := os.Getenv("DATA_APP_PUBLIC_KEY")
 	apiPrivateKey := os.Getenv("DATA_APP_PRIVATE_KEY")
+
 	t := dac.NewTransport(apiPublicKey, apiPrivateKey)
 
 	res, err := t.RoundTrip(req)
 	if err != nil {
 		fmt.Println("Error happened in JSON marshal. Err:", err)
+		w.Write([]byte(err.Error()))
 		return
 	}
 
 	// Get the Location body
-	eventsBody, _ := io.ReadAll(res.Body)
-	fmt.Println("eventsBody", string(eventsBody))
+	recipesBody, _ := io.ReadAll(res.Body)
 
-	var events TiDBEventsDto
-	json.Unmarshal([]byte(eventsBody), &events)
+	var recipes TiDBRecipesDto
+	json.Unmarshal([]byte(recipesBody), &recipes)
 
 	// Response to client
-	jsonResp, err := json.Marshal(events.Data.Rows)
+	jsonResp, err := json.Marshal(recipes.Data.Rows)
 	if err != nil {
 		fmt.Println("Error happened in JSON marshal. Err:", err)
+		w.Write([]byte(err.Error()))
 	} else {
 		w.Write(jsonResp)
 	}
 }
 
-type TiDBEventsDto struct {
+type TiDBRecipesDto struct {
 	Type string `json:"type"`
 	Data struct {
 		// Columns []struct {
@@ -60,15 +66,18 @@ type TiDBEventsDto struct {
 		// 	Nullable bool   `json:"nullable"`
 		// } `json:"columns"`
 		Rows []struct {
-			Budget      string `json:"budget"`
-			Category    string `json:"category"`
-			Difficulty  string `json:"difficulty"`
-			GuestRange  string `json:"guest_range"`
-			ID          string `json:"id"`
-			Name        string `json:"name"`
-			Subcategory string `json:"subcategory"`
-			Tags        string `json:"tags"`
-			TodoList    string `json:"todo_list"`
+			Budget              string `json:"budget"`
+			CookingTime         string `json:"cooking_time"`
+			CuisineType         string `json:"cuisine_type"`
+			DietaryRestrictions string `json:"dietary_restrictions"`
+			DifficultyLevel     string `json:"difficulty_level"`
+			ID                  string `json:"id"`
+			Ingredients         string `json:"ingredients"`
+			Instructions        string `json:"instructions"`
+			Name                string `json:"name"`
+			PreparationTime     string `json:"preparation_time"`
+			ServingSize         string `json:"serving_size"`
+			Tags                string `json:"tags"`
 		} `json:"rows"`
 		// Result struct {
 		// 	Code      int      `json:"code"`

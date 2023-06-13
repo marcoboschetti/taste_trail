@@ -1,47 +1,59 @@
 
 
-$.getJSON("/api/events/random", events => {
+$.getJSON("/api/recipes/random", events => {
 
-    var wrapper = $('#initial-events');        
+    var wrapper = $('#random-recipes');
 
-    events.forEach(event => {
+    events.forEach(recipe => {
 
-        console.log(event);
+        console.log(recipe);
         var tagsHtml = "";
-        event.tags.split(",").forEach(tag => {
-            tagsHtml += `<span>`+tag+`</span>`;
+        recipe.tags.split(",").forEach(tag => {
+            tagsHtml += `<span>` + tag + `</span>`;
 
         })
 
         var eventCardHTML = `
-        <div class="col-md-4">
-            <div class="card p-3 mb-2">
-                <div class="d-flex justify-content-between">
-                    <div class="d-flex flex-row align-items-center">
-                        <div class="icon"> <i class="bx bxl-mailchimp"></i> </div>
-                        <div class="ms-2 c-details">
-                            <h6 class="mb-0">`+event.category+`</h6> <span>`+event.subcategory+`</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <div class="badgex"> `+tagsHtml+` </div>
-                </div>
-                <div class="mt-5">
-                    <h3 class="heading">`+event.name+`</h3>
-                    <div class="mt-5">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <div class="mt-3"> <span class="text1">Difficuly: `+event.difficulty+`<span class="text2">/5</span></span> </div>
-                        <div class="mt-3"> <span class="text1">Budget: `+event.budget+`<span class="text2">/5</span></span> </div>
-                        <div class="mt-3"> <span class="text1">Number of guests: `+event.guest_range+`</span> </div>
-                    </div>
-                </div>
+        <div class="col-lg-4 col-md-12 mb-4">
+        <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
+                <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">`+ recipe.name + `</h5>
+                <hr class="my-4" />
+
+                <h5 class="card-title">
+                    <i class="fa-solid fa-money-bills" style="color: #005cfa;"></i> 
+                    `+recipe.budget+ `/5
+                </h5>
+
+                <h5 class="card-title">
+                    <i class="fa-regular fa-clock"></i>
+                    `+recipe.cooking_time+ `
+                </h5>
+                <h5 class="card-title">
+                    <span class="badge rounded-pill badge-primary">
+                        `+recipe.cuisine_type+ `
+                    </span>
+                </h5>
+                <h5 class="card-title">dietary_restrictions: `+recipe.dietary_restrictions+ `</h5>
+                <h5 class="card-title">difficulty_level: `+recipe.difficulty_level+ `</h5>
+                <h5 class="card-title">id: `+recipe.id+ `</h5>
+                <h5 class="card-title">preparation_time: `+recipe.preparation_time+ `</h5>
+                <h5 class="card-title">serving_size: `+recipe.serving_size+ `</h5>
+                <h5 class="card-title">tags: `+recipe.tags+ `</h5>
+
             </div>
         </div>
+    </div>
+
         `;
         wrapper.append(eventCardHTML);
     })
 
 });
+
