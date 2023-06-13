@@ -22,7 +22,7 @@ func RandomE(w http.ResponseWriter, r *http.Request) {
 
 	// API User
 	baseAPIURL := os.Getenv("DATA_APP_BASE_URL")
-	randomRecipesURL := baseAPIURL + "/v1/recipes/random?max_results=8" //?limit=${limit}'
+	randomRecipesURL := baseAPIURL + "/v1/recipes/random?max_results=4" //?limit=${limit}'
 	req, reqErr := http.NewRequest("GET", randomRecipesURL, nil)
 	if reqErr != nil {
 		w.Write([]byte(reqErr.Error()))

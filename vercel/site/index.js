@@ -66,6 +66,10 @@ $.getJSON("/api/recipes/random", events => {
             <div class="card-footer text-muted">
                 <p class="card-text recipe-ingredients-footer">`+ recipe.ingredients + `</h5>
             </div>
+
+            <hr class="my-4" />
+            <p class="card-text">`+ recipe.instructions + `</p>
+            
         </div>
     </div>
 
