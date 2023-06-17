@@ -22,5 +22,35 @@
     "sql_file": "sql/GET-v1-recipes-random.sql",
     "type": "sql_endpoint",
     "return_type": "json"
+  },
+  {
+    "name": "Ingredients List",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/v1/ingredients",
+    "data_source": {
+      "cluster_id": 1379661944646197459
+    },
+    "params": [
+      {
+        "name": "start_record",
+        "type": "number",
+        "required": 0,
+        "default": "0"
+      },
+      {
+        "name": "end_record",
+        "type": "number",
+        "required": 0,
+        "default": "50"
+      }
+    ],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 50
+    },
+    "sql_file": "sql/GET-v1-ingredients.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
   }
 ]
