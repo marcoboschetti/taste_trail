@@ -52,5 +52,22 @@
     "sql_file": "sql/GET-v1-ingredients.sql",
     "type": "sql_endpoint",
     "return_type": "json"
+  },
+  {
+    "name": "Ingredients Count",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/v1/ingredients/count",
+    "data_source": {
+      "cluster_id": 1379661944646197459
+    },
+    "params": [],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 50
+    },
+    "sql_file": "sql/GET-v1-ingredients-count.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
   }
 ]
