@@ -37,5 +37,4 @@ FROM
   ) >= `numbers`.`n` - 1
 )
 SELECT COUNT(*) 
-FROM ingredients
-ORDER BY ingredient;
+FROM ingredients;

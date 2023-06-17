@@ -36,7 +36,8 @@ FROM
       (`ingredients`, ',', '')
   ) >= `numbers`.`n` - 1
 )
-SELECT *
+SELECT ingredient
 FROM ingredients
   -- LIMIT ${page}, ${page_size};
-  LIMIT ${start_record},  ${end_record};
+ORDER BY ingredient
+LIMIT ${start_record},  ${end_record};
