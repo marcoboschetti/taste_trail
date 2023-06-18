@@ -36,5 +36,5 @@ FROM
       (`ingredients`, ',', '')
   ) >= `numbers`.`n` - 1
 )
-SELECT COUNT(*) 
+SELECT COUNT(*) as ingredients_count
 FROM ingredients;
