@@ -2,12 +2,12 @@ USE recipes;
 
 -- Ingredients are a string separated by commas. Split them in different rows
 WITH ingredients AS (
-SELECT DISTINCT
+SELECT DISTINCT TRIM(
   SUBSTRING_INDEX(
     SUBSTRING_INDEX(`ingredients`, ',', `numbers`.`n`),
     ',',
     -1
-  ) AS `ingredient`
+  )) AS `ingredient`
 FROM
   `recipes`
   JOIN (
