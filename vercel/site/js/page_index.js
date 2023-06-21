@@ -2,7 +2,6 @@
 
 $(document).ready(function () {
     loadRandomRecipes();
-    // getAllIngredients();
     populateIngredientsAutocomplete();
 });
 

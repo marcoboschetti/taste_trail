@@ -1,42 +1,30 @@
 var totalIngredients;
-var ingredientsArr;
-var pageSize = 50;
-
-
-function getAllIngredients() {
-    if (!ingredientsArr) {
-        getIngredientsCount();
-    }
-}
+var selectedIngredients = [];
 
 function getIngredientsCount() {
-    $.getJSON("/api/ingredients/count", ingredientsCount => {
-        totalIngredients = parseInt(ingredientsCount);
-
-        ingredientsArr = [];
-        getIngredientsPage(0);
-    });
-}
-
-function getIngredientsPage(curStartRecord) {
-    if (curStartRecord > totalIngredients) {
-        populateIngredientsAutocomplete(ingredientsArr)
+    if(totalIngredients){
         return;
     }
 
-    $.getJSON("/api/ingredients/page?start_record=" + curStartRecord, ingredientsPage => {
-        ingredientsArr.push(...ingredientsPage)
-        console.log(ingredientsArr)
-
-        curStartRecord += pageSize;
-        getIngredientsPage(curStartRecord)
+    $.getJSON("/api/ingredients/count", ingredientsCount => {
+        totalIngredients = parseInt(ingredientsCount);
     });
 }
 
-function populateIngredientsAutocomplete(options) {
-    console.log(options);
-    // set_autocomplete('ingredientInput', 'ingredientComplete', options);
-    // set_autocomplete('ingredientInput', 'ingredientComplete', options, start_at_letters=3, count_results=5);
-    $('#ingredientInput').autocomplete();
+function populateIngredientsAutocomplete() {
+    $('#ingredientInput').autocomplete({
+        onPick(el, item) {
+            var ingredientPicked = $(item).html();
+            selectedIngredients.push(ingredientPicked);
+            
+            var pillHTML = `
+            <button type="button" class="btn btn-primary position-relative">
+                `+ingredientPicked+`
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">X</span>
+            </button>`;
+            $("#selectedIngredientsContainer").append(pillHTML);
+            $("#ingredientInput").val("")
+        }
+    });
     
 }
