@@ -1,5 +1,100 @@
 [
   {
+    "name": "UNUSED Ingredients List",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/v1/ingredients",
+    "data_source": {
+      "cluster_id": 1379661944646197459
+    },
+    "params": [
+      {
+        "name": "start_record",
+        "type": "number",
+        "required": 0,
+        "default": "0"
+      },
+      {
+        "name": "end_record",
+        "type": "number",
+        "required": 0,
+        "default": "50"
+      }
+    ],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 50
+    },
+    "sql_file": "sql/GET-v1-ingredients.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "Ingredients Count",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/v1/ingredients/count",
+    "data_source": {
+      "cluster_id": 1379661944646197459
+    },
+    "params": [],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 50
+    },
+    "sql_file": "sql/GET-v1-ingredients-count.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "Ingredients Query",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/v1/ingredients/query",
+    "data_source": {
+      "cluster_id": 1379661944646197459
+    },
+    "params": [
+      {
+        "name": "q",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      }
+    ],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 50
+    },
+    "sql_file": "sql/GET-v1-ingredients-query.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "Recipe random",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/v1/recipes/random",
+    "data_source": {
+      "cluster_id": 1379661944646197459
+    },
+    "params": [
+      {
+        "name": "max_results",
+        "type": "number",
+        "required": 0,
+        "default": ""
+      }
+    ],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 50
+    },
+    "sql_file": "sql/GET-v1-recipes-random.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
     "name": "Recipes by ingredients",
     "description": "",
     "method": "GET",
@@ -134,101 +229,6 @@
       "row_limit": 50
     },
     "sql_file": "sql/GET-v1-recipes-random_dump_pzSyig.sql",
-    "type": "sql_endpoint",
-    "return_type": "json"
-  },
-  {
-    "name": "Ingredients Query",
-    "description": "",
-    "method": "GET",
-    "endpoint": "/v1/ingredients/query",
-    "data_source": {
-      "cluster_id": 1379661944646197459
-    },
-    "params": [
-      {
-        "name": "q",
-        "type": "string",
-        "required": 0,
-        "default": ""
-      }
-    ],
-    "settings": {
-      "timeout": 5000,
-      "row_limit": 50
-    },
-    "sql_file": "sql/GET-v1-ingredients-query.sql",
-    "type": "sql_endpoint",
-    "return_type": "json"
-  },
-  {
-    "name": "Ingredients Count",
-    "description": "",
-    "method": "GET",
-    "endpoint": "/v1/ingredients/count",
-    "data_source": {
-      "cluster_id": 1379661944646197459
-    },
-    "params": [],
-    "settings": {
-      "timeout": 5000,
-      "row_limit": 50
-    },
-    "sql_file": "sql/GET-v1-ingredients-count.sql",
-    "type": "sql_endpoint",
-    "return_type": "json"
-  },
-  {
-    "name": "UNUSED Ingredients List",
-    "description": "",
-    "method": "GET",
-    "endpoint": "/v1/ingredients",
-    "data_source": {
-      "cluster_id": 1379661944646197459
-    },
-    "params": [
-      {
-        "name": "start_record",
-        "type": "number",
-        "required": 0,
-        "default": "0"
-      },
-      {
-        "name": "end_record",
-        "type": "number",
-        "required": 0,
-        "default": "50"
-      }
-    ],
-    "settings": {
-      "timeout": 5000,
-      "row_limit": 50
-    },
-    "sql_file": "sql/GET-v1-ingredients.sql",
-    "type": "sql_endpoint",
-    "return_type": "json"
-  },
-  {
-    "name": "Recipe random",
-    "description": "",
-    "method": "GET",
-    "endpoint": "/v1/recipes/random",
-    "data_source": {
-      "cluster_id": 1379661944646197459
-    },
-    "params": [
-      {
-        "name": "max_results",
-        "type": "string",
-        "required": 0,
-        "default": ""
-      }
-    ],
-    "settings": {
-      "timeout": 5000,
-      "row_limit": 50
-    },
-    "sql_file": "sql/GET-v1-recipes-random.sql",
     "type": "sql_endpoint",
     "return_type": "json"
   }
