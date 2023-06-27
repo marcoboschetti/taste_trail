@@ -132,7 +132,7 @@
         "name": "max_results",
         "type": "number",
         "required": 0,
-        "default": ""
+        "default": "6"
       }
     ],
     "settings": {
