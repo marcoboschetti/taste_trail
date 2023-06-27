@@ -27,4 +27,4 @@ WITH filtered_recipes AS(
 SELECT *
 FROM filtered_recipes 
 WHERE seqnum = 1
-LIMIT 10;
+LIMIT ${max_results};

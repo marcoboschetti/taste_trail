@@ -127,6 +127,12 @@
         "type": "string",
         "required": 0,
         "default": ""
+      },
+      {
+        "name": "max_results",
+        "type": "number",
+        "required": 0,
+        "default": ""
       }
     ],
     "settings": {
