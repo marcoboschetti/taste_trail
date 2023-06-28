@@ -44,5 +44,6 @@ WITH filtered_recipes AS(
 SELECT *
 FROM filtered_recipes 
 WHERE seqnum = 1
+AND match_score > 0
 ORDER BY match_score DESC
 LIMIT ${max_results};
