@@ -1,5 +1,203 @@
 [
   {
+    "name": "Recipes by partial ingredients",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/v1/recipes/ingredients_dump_xVRHkh",
+    "data_source": {
+      "cluster_id": 1379661944646197459
+    },
+    "params": [
+      {
+        "name": "q1",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q2",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q3",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q4",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q5",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q6",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q7",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q8",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q9",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q10",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q11",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q12",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q13",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q14",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q15",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q16",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q17",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q18",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q19",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q20",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q21",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q23",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q24",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q25",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q26",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q27",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q28",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q29",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q30",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "max_results",
+        "type": "number",
+        "required": 0,
+        "default": ""
+      }
+    ],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 50
+    },
+    "sql_file": "sql/GET-v1-recipes-ingredients_dump_xVRHkh.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
     "name": "Recipes by ingredients",
     "description": "",
     "method": "GET",
