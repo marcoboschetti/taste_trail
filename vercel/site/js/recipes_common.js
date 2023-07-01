@@ -6,22 +6,18 @@ function recipeToCardHTML(recipe) {
         cuisineVal = recipe.cuisine_type;
     }
 
+    var imgFileName = "recipe_"+ recipe.name.toLowerCase().replaceAll(" ","_")+".png"
     var cardHTML = `
-<div class="col">
-<div class="card mb-3 rounded-3 shadow-sm">
-  <div class="card-header py-3">
-    <h4 class="my-0 fw-normal limit-2">`+ recipe.name + `</h4>
-  </div>
-  <div class="card-body">
-
-    <h6 class="card-subtitle mb-2 text-muted">
+    <div class="card">
+      <img class="card-img-top" src="/site/img/`+imgFileName+`" alt="Unsplash">
+      <div class="card-header">
+        <h5 class="card-title mb-0">`+ recipe.name + `</h5>
+      </div>
+      <div class="card-body">
         <span class="badge bg-secondary">`+ cuisineVal + `</span>
-    </h6>
-    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Check recipe</button>
-  </div>
-</div>
-</div>
-
+        <a href="#" class="btn btn-primary">Check recipe</a>
+      </div>
+    </div>
 `;
     return cardHTML;
 }
