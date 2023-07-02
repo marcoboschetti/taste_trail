@@ -9,7 +9,7 @@ function recipeToCardHTML(recipe) {
     var imgFileName = "recipe_"+ recipe.name.toLowerCase().replaceAll(" ","_")+".png"
     var cardHTML = `
     <div class="card">
-      <img class="card-img-top" src="/site/img/`+imgFileName+`" alt="Unsplash">
+      <img class="card-img-top" src="/site/img/recipes/`+imgFileName+`" alt="Unsplash">
       <div class="card-header">
         <h5 class="card-title mb-0">`+ recipe.name + `</h5>
       </div>

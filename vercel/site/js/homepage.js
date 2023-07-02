@@ -10,7 +10,6 @@ function loadRandomRecipes() {
             recipesHTML += recipeToCardHTML(recipe);
         })
         $('#random-recipes').html(recipesHTML);
-
     });
 
 }

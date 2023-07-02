@@ -1,0 +1,116 @@
+:root {
+    --main-color-light: #DCEAF7;
+    --main-bg-color: #354460;
+    --main-bg-color-alt: #466895;
+    --main-color-alt: #92B5DE;
+    --main-color: #537AAD;
+}
+
+.sidebar-content, .simplebar-mask {
+    /* background-color: var(--main-color-light); */
+    background-color: white;
+}
+
+h1, .mandarina-text, .sidebar-item {
+    font-family: "Montserrat", Sans-serif;
+    text-transform: uppercase;
+}
+
+.sidebar-item.active>.sidebar-link {
+    color: #434343;
+    border-top: 1px solid var(--main-bg-color);
+    border-bottom: 1px solid var(--main-bg-color);
+}
+
+.sidebar-link, a.sidebar-link, .sidebar-header {
+    /* background: var(--main-color-light); */
+    background-color: white;
+
+    color: var(--main-color);
+    font-family: "Montserrat", Sans-serif;
+    text-transform: uppercase;
+}
+
+li.sidebar-header::after {
+    position: absolute;
+    content: '';
+    border-bottom: 0.1rem solid var(--main-color-alt);
+    width: 87%;
+    transform: translateX(-50%);
+    padding-top: 1.8em;
+    left: 50%;
+    max-width: 100%;
+}
+
+.sidebar-subheader {
+    list-style-type: none;
+    background: var(--main-color-light);
+    color: var(--main-color);
+    font-family: "Montserrat", Sans-serif;
+    text-transform: uppercase;
+    font-size: .75rem;
+    padding: 0.5rem 0.2rem 0.2em;
+}
+
+.sidebar-link svg, a.sidebar-link svg, .sidebar-link, a.sidebar-link {
+    color: var(--main-color);
+}
+
+.footer-icon {
+    color: var(--main-color);
+    font-size: 1.25em;
+}
+
+.footer-link {
+    color: black;
+    font-weight: bold;
+}
+
+.sidebar-item.active>.sidebar-link svg {
+    color: var(--main-bg-color);
+}
+
+.sidebar-item.active>.sidebar-link {
+    background: var(--main-color-light);
+    border-left-color: var(--main-color);
+}
+
+#navLogo {
+    width: 100%;
+}
+
+.sidebar-link:hover, .sidebar-item.active .sidebar-link:hover, .sidebar-link:hover svg, .sidebar-item.active .sidebar-link:hover svg {
+    opacity: 0.6;
+    background-color: transparent;
+    color: black !important;
+    background: var(--main-color-light);
+}
+
+
+.mandarina-btn {
+    background: var(--main-color);
+    font-weight: bold;
+    border: none;
+}
+
+.navbar-brand {
+    padding: 0em;
+}
+
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+img.tt-loader {
+    width: 11em;
+    animation: rotation 2s infinite linear;
+    margin-left: auto;
+    margin-right: auto;
+}
