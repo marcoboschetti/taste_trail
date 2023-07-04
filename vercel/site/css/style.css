@@ -114,3 +114,13 @@ img.tt-loader {
     margin-left: auto;
     margin-right: auto;
 }
+
+.two-lines {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: 0.9em;
+    min-height: 2.7em;
+}
