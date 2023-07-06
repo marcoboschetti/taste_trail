@@ -3,7 +3,7 @@
     "name": "Recipe by ID",
     "description": "",
     "method": "GET",
-    "endpoint": "/v1/recipes/random_dump_UfyXem",
+    "endpoint": "/v1/recipes/id",
     "data_source": {
       "cluster_id": 1379661944646197459
     },
@@ -19,7 +19,7 @@
       "timeout": 5000,
       "row_limit": 50
     },
-    "sql_file": "sql/GET-v1-recipes-random_dump_UfyXem.sql",
+    "sql_file": "sql/GET-v1-recipes-id.sql",
     "type": "sql_endpoint",
     "return_type": "json"
   },
