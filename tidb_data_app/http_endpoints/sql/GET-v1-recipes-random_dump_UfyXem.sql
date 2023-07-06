@@ -1,6 +1,6 @@
 use recipes;
 
 SELECT * 
-FROM sorted_recipes
+FROM recipes
 WHERE id = ${id}
 LIMIT 1;
