@@ -11,13 +11,13 @@
       {
         "name": "id",
         "type": "number",
-        "required": 0,
-        "default": ""
+        "required": 1,
+        "default": "1"
       }
     ],
     "settings": {
       "timeout": 5000,
-      "row_limit": 50
+      "row_limit": 1
     },
     "sql_file": "sql/GET-v1-recipes-id.sql",
     "type": "sql_endpoint",
