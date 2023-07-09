@@ -1,11 +1,100 @@
 <main class="my-5">
     <h1 class="h3 mb-3"><strong>Recipe</strong> details</h1>
+    <div class="card" id="recipe-details-container">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6">
+                    <img class="tt-loader loader" src="/site/img/logo_icon.png">
+                    <img id="main-image" class="card-img-top mb-5 mb-md-0">
+                </div>
+                <div class="col-md-6 after-loading" hidden>
 
-    <ul>
-    <li> Detailed information about a specific recipe.</li>
-    <li> Ingredients, cooking instructions, preparation time, and serving size.</li>
-    <li> Additional details like nutritional information, difficulty level, and user ratings.</li>
-    <li> Option to save or print the recipe.</li>
-    </ul>
-    
+                    <div class="d-flex">
+                        <div class="small mb-1">Recipe id: <span id="recipe-id"></span></div>
+                        <button class="btn btn-primary btn" id="print-recipe" style="margin-left: auto;">Print
+                            Recipe</button>
+                    </div>
+
+                    <h3 class="display-5 fw-bolder" id="recipe-title"></h3>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <span id="cuisine-tag" style="font-weight: bold;"></span>
+                            Cuisine
+                        </div>
+                        <div class="col-md-4">
+                            <span id="servings" style="font-weight: bold;"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="card-title">Cooking time: </span><br>
+                            <span id="cooking-time"></span>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            Budget
+                            <div class="progress">
+                                <div id="budget-bar" class="progress-bar bg-success" role="progressbar"
+                                    style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            Difficulty
+                            <div class="progress">
+                                <div id="difficulty-bar" class="progress-bar bg-success" role="progressbar"
+                                    style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="card-title">Preparation time: </span><br>
+                            <span id="preparation-time"></span>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <h5 class="card-title">Ingredients</h5>
+                    <p class="row" id="ingredients-container"></p>
+
+                </div>
+            </div>
+
+            <hr class="after-loading" hidden />
+            <div class="row gx-4 gx-lg-5 align-items-center after-loading" hidden>
+                <h5 class="card-title">Instructions</h5>
+                <p id="instructions-container"></p>
+            </div>
+        </div>
+
+
+    </div>
+
+
 </main>
+
+<script type="text/javascript" src="site/js/recipe_details.js"></script>
+
+<style type="text/css">
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        #recipe-details-container * {
+            visibility: visible;
+        }
+
+        #recipe-details-container {
+            position: absolute;
+            top: 40px;
+            left: 10px;
+        }
+
+        #print-recipe {
+            visibility: hidden;
+        }
+    }
+</style>
