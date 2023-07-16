@@ -42,7 +42,7 @@
         "name": "q1",
         "type": "string",
         "required": 0,
-        "default": "mexican"
+        "default": ""
       },
       {
         "name": "q2",
