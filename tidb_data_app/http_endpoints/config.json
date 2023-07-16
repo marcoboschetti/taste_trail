@@ -1,5 +1,143 @@
 [
   {
+    "name": "Recipes by filters",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/v1/recipes/filter",
+    "data_source": {
+      "cluster_id": 1379661944646197459
+    },
+    "params": [
+      {
+        "name": "min_difficulty",
+        "type": "number",
+        "required": 0,
+        "default": "0"
+      },
+      {
+        "name": "max_difficulty",
+        "type": "number",
+        "required": 0,
+        "default": "10"
+      },
+      {
+        "name": "min_budget",
+        "type": "number",
+        "required": 0,
+        "default": "0"
+      },
+      {
+        "name": "max_budget",
+        "type": "number",
+        "required": 0,
+        "default": "10"
+      },
+      {
+        "name": "title_query",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q1",
+        "type": "string",
+        "required": 0,
+        "default": "mexican"
+      },
+      {
+        "name": "q2",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q3",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q4",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q5",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q6",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q7",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q8",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q9",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q10",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q11",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q12",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q13",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q14",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "max_results",
+        "type": "number",
+        "required": 0,
+        "default": "10"
+      }
+    ],
+    "settings": {
+      "timeout": 5000,
+      "row_limit": 50
+    },
+    "sql_file": "sql/GET-v1-recipes-filter.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
     "name": "Recipe by ID",
     "description": "",
     "method": "GET",
