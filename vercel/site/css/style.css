@@ -124,3 +124,11 @@ img.tt-loader {
     font-size: 0.9em;
     min-height: 2.7em;
 }
+
+.bg-food-trail {
+    background-color: var(--main-bg-color-alt);
+}
+
+.filter-button {
+    margin-bottom: 0.5em;
+}

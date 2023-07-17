@@ -1,0 +1,71 @@
+<div class="container-fluid p-0">
+    <h1 class="h3 mb-3"><strong>Recipe</strong> listing</h1>
+    <ul>
+        <li>A page displaying a list of recipes.</li>
+        <li>Filter options such as cuisine type, dietary restrictions, cooking time, etc.</li>
+        <li>Each recipe listed as a clickable link leading to the Recipe Details page.</li>
+    </ul>
+</div>
+
+
+<div class="container-fluid p-0">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header pb-0">
+
+
+                    <label for="customRange3" class="form-label">Search by title</label>
+                    <input class="form-control form-control-lg mb-3" type="text" placeholder="Search term...">
+
+                    <hr />
+                    <label for="customRange4" class="form-label">Budget</label>
+                    <div class="btn-group me-2" role="group" aria-label="First group" style="width: 100%;">
+                        <button type="button" class="btn btn-success filter-toggle" id="budget-btn-1">$</button>
+                        <button type="button" class="btn btn-success filter-toggle" id="budget-btn-2">$$</button>
+                        <button type="button" class="btn btn-warning filter-toggle" id="budget-btn-3">$$$</button>
+                    </div>
+
+                    <hr />
+                    <label for="customRange5" class="form-label">Difficulty</label>
+                    <div class="btn-group me-2" role="group" aria-label="First group" style="width: 100%;">
+                        <button type="button" class="btn btn-success filter-toggle" id="diff-btn-1">Simple</button>
+                        <button type="button" class="btn btn-success filter-toggle" id="diff-btn-2">Medium</button>
+                        <button type="button" class="btn btn-warning filter-toggle" id="diff-btn-3">Complex</button>
+                    </div>
+
+                    <hr />
+                    <label for="customRange3" class="form-label">Cuisine</label>
+                    <br>
+                        <button class="btn btn-success filter-button filter-toggle">Thai</button>
+                        <button class="btn btn-success filter-button filter-toggle">Indian</button>
+                        <button class="btn btn-success filter-button filter-toggle">Seafood</button>
+                        <button class="btn btn-success filter-button filter-toggle">Russian</button>
+                        <button class="btn btn-success filter-button filter-toggle">Mediterranean</button>
+                        <button class="btn btn-success filter-button filter-toggle">Japanese</button>
+                        <button class="btn btn-success filter-button filter-toggle">Italian</button>
+                        <button class="btn btn-success filter-button filter-toggle">None</button>
+                        <button class="btn btn-success filter-button filter-toggle">Greek</button>
+                        <button class="btn btn-success filter-button filter-toggle">American</button>
+                        <button class="btn btn-success filter-button filter-toggle">French</button>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <h4 class="mb-5"><strong>Search results</strong></h4>
+                </div>
+                <div class="card-body">
+                    <div id="search-results">
+                        <img class="tt-loader" src="/site/img/logo_icon.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/site/js/recipe_explore.js"></script>

@@ -36,9 +36,13 @@ $(document).ready(function () {
         instructionsHTML += '<ul></div>'
         $("#instructions-container").html(instructionsHTML);
 
+        var cuisineVal = "International";
+        if (recipe.cuisine_type && recipe.cuisine_type != "None") {
+            cuisineVal = recipe.cuisine_type;
+        }
         $("#cooking-time").html(recipe.cooking_time);
         $("#servings").html(recipe.serving_size);
-        $("#cuisine-tag").html(recipe.cuisine_type);
+        $("#cuisine-tag").html(cuisineVal);
 
 
         $("#preparation-time").html(recipe.preparation_time);

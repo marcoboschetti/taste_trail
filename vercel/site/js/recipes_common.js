@@ -12,7 +12,7 @@ function recipeToCardHTML(recipe) {
   <div class="card">
     <img class="card-img-top" src="/site/img/recipes/`+imgFileName+`" alt="Unsplash">
     <div class="card-header px-4 pt-4">
-      <div class="badge bg-warning my-2">`+ cuisineVal + `</div>
+      <div class="badge bg-food-trail my-2">`+ cuisineVal + `</div>
       <h5 class="card-title mb-0 two-lines">`+ recipe.name + `</h5>
     </div>
     <!--<div class="card-body px-2 pt-1"></div>-->
