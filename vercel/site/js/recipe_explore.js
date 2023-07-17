@@ -17,8 +17,8 @@ $(document).ready(function () {
 
 function searchByFilters() {
     $(".tt-loader").slideDown();
-    $('#search-results').parent().children().last().slideUp();
-    $('#search-results').parent().children().last().remove();
+    $('#results-container').slideUp();
+    $('#results-container').remove();
 
     var budgetMin = 0;
     var budgetMax = 0;
@@ -52,14 +52,18 @@ function searchByFilters() {
     var cuisine = [];
     $(".filter-button").each(function () {
         if ($(this).hasClass("btn-success")) {
-            cuisine.push($(this).html());
+            var val = $(this).html();
+            if(val == "International"){
+                val = "None";
+            }
+            cuisine.push(val);
         }
     });
     console.log(cuisine)
 
 
     $.getJSON("/api/recipes/filter?bMin="+budgetMin+"&bMax="+budgetMax+"&dMin="+diffMin+"&dMax="+diffMax+"&cuisines="+cuisine.join(","), events => {
-        var recipesHTML = '<div><div class="row row-cols-4 text-center">';
+        var recipesHTML = '<div id="results-container"><div class="row row-cols-4 text-center">';
         $.each(events, function (key, recipe) {
             recipesHTML += recipeToCardHTML(recipe);
             if (key == 3) {
