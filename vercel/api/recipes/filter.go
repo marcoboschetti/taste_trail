@@ -46,13 +46,13 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	cuisineQuery := "&"
+	cuisineQuery := ""
 	for idx, c := range strings.Split(cuisinesArr, ",") {
-		cuisineQuery += fmt.Sprintf("q%d=%s", idx+1, c)
+		cuisineQuery += fmt.Sprintf("&q%d=%s", idx+1, c)
 	}
 
 	randomRecipesURL := fmt.Sprintf("%s/v1/recipes/filter?min_difficulty=%d&max_difficulty=%d&min_budget=%d&max_budget=%d&max_results=%d%s",
-		baseAPIURL, dMin, dMax, bMin, bMax, 20, cuisineQuery)
+		baseAPIURL, dMin, dMax, bMin, bMax, 40, cuisineQuery)
 
 	req, reqErr := http.NewRequest("GET", randomRecipesURL, nil)
 	if reqErr != nil {
@@ -74,7 +74,6 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 
 	// Get the Location body
 	recipesBody, _ := io.ReadAll(res.Body)
-	// fmt.Println(string(recipesBody))
 
 	var recipes TiDBRecipesFilteredDto
 	json.Unmarshal([]byte(recipesBody), &recipes)
