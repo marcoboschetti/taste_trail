@@ -1,6 +1,7 @@
 -- Return a list of recipes based on input filters. It should include min and max budget, min and max complexity and a list of cuisine types 
 use recipes;
 
+WITH filtered AS (
 SELECT *
 FROM recipes 
 WHERE difficulty_level >= ${min_difficulty}
@@ -24,5 +25,13 @@ WHERE difficulty_level >= ${min_difficulty}
       LOWER(${q13}),
       LOWER(${q14})
   )
+),
+sorted_recipes AS (
+  SELECT *, row_number() over (partition by LOWER(name) order by id desc) as seqnum
+  FROM filtered
+)
+SELECT * 
+FROM sorted_recipes
+WHERE seqnum = 1
 ORDER BY id DESC
 LIMIT ${max_results};
