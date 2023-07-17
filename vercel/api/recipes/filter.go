@@ -74,7 +74,7 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 
 	// Get the Location body
 	recipesBody, _ := io.ReadAll(res.Body)
-	fmt.Println(string(recipesBody))
+	// fmt.Println(string(recipesBody))
 
 	var recipes TiDBRecipesFilteredDto
 	json.Unmarshal([]byte(recipesBody), &recipes)
