@@ -8,7 +8,7 @@ WHERE difficulty_level >= ${min_difficulty}
 	AND difficulty_level <= ${max_difficulty}
 	AND budget >= ${min_budget}
 	AND budget <= ${max_budget}
-  	AND (CHAR_LENGTH(${title_query}) = 0 OR LOWER(name) LIKE CONCAT("%",LOWER(${title_query}),"%")) 
+  	AND (CHAR_LENGTH(${title_query}) = 0 OR LOWER(name) LIKE  CONCAT('%',LOWER(REPLACE(${title_query},' ','%')),'%') ) 
   	AND LOWER(cuisine_type) IN (
       LOWER(${q1}),
       LOWER(${q2}),
