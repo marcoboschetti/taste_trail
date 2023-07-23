@@ -11,11 +11,6 @@
     background-color: white;
 }
 
-h1, .mandarina-text, .sidebar-item {
-    font-family: "Montserrat", Sans-serif;
-    text-transform: uppercase;
-}
-
 .sidebar-item.active>.sidebar-link {
     color: #434343;
     border-top: 1px solid var(--main-bg-color);
@@ -135,4 +130,15 @@ img.tt-loader {
 
 .ingredient-pill{
     margin: 0.3em 0.6em;
+}
+
+.full-height{
+    height: 100%;
+}
+
+.img-section {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1em;
 }

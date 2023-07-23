@@ -50,7 +50,6 @@ function findRecipes() {
     $(".ingredient-pill").each(function () {
         selectedIngredients.push($(this).find(".ingredient").text());
     });
-    console.log("!selectedIngredients",selectedIngredients)
 
     var ingCSV = selectedIngredients.join(",");
     $.getJSON("/api/recipes/query_ingredients?ing=" + ingCSV, recipes => {
