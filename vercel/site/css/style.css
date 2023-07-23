@@ -132,3 +132,7 @@ img.tt-loader {
 .filter-button {
     margin-bottom: 0.5em;
 }
+
+.ingredient-pill{
+    margin: 0.3em 0.6em;
+}

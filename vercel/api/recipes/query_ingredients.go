@@ -24,7 +24,7 @@ func QueryIngredients(w http.ResponseWriter, r *http.Request) {
 	}
 
 	baseAPIURL := os.Getenv("DATA_APP_BASE_URL")
-	randomRecipesURL := baseAPIURL + "/v1/recipes/ingredients/partial?max_results=6" + query
+	randomRecipesURL := baseAPIURL + "/v1/recipes/ingredients/partial?max_results=30" + query
 	req, reqErr := http.NewRequest("GET", randomRecipesURL, nil)
 	if reqErr != nil {
 		w.Write([]byte(reqErr.Error()))

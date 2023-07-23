@@ -11,6 +11,10 @@ $(document).ready(function () {
         searchByFilters();
     });
 
+    $('#title-input').on('input', function (e) {
+        searchByFilters();
+    });
+
     searchByFilters();
 });
 
@@ -20,6 +24,8 @@ function searchByFilters() {
     $("#results-container").slideUp();
     $("#results-container").empty();
 
+
+    var titleInput = $("#title-input").val();
     var budgetMin = 0;
     var budgetMax = 0;
     if ($("#budget-btn-1").hasClass("btn-success")) { budgetMax = 3 } else { budgetMin = 3; }
@@ -53,25 +59,29 @@ function searchByFilters() {
     $(".filter-button").each(function () {
         if ($(this).hasClass("btn-success")) {
             var val = $(this).html();
-            if(val == "International"){
+            if (val == "International") {
                 val = "None";
             }
             cuisine.push(val);
         }
     });
-    console.log(cuisine)
 
+    $.getJSON("/api/recipes/filter?title=" + titleInput + "&bMin=" + budgetMin + "&bMax=" + budgetMax + "&dMin=" + diffMin + "&dMax=" + diffMax + "&cuisines=" + cuisine.join(","), events => {
+        var recipesHTML;
+        if (!events.length) {
+            recipesHTML = "<h2>No recipes found. Please try with other filters</h2>"
+        } else {
+            recipesHTML = '<div class="row row-cols-4 text-center">';
+            $.each(events, function (key, recipe) {
+                recipesHTML += recipeToCardHTML(recipe);
+                if (key == 3) {
+                    recipesHTML += '</div><div class="row row-cols-4 text-center">';
+                }
+            })
+            recipesHTML += '</div>';
+        }
 
-    $.getJSON("/api/recipes/filter?bMin="+budgetMin+"&bMax="+budgetMax+"&dMin="+diffMin+"&dMax="+diffMax+"&cuisines="+cuisine.join(","), events => {
-        var recipesHTML = '<div class="row row-cols-4 text-center">';
-        $.each(events, function (key, recipe) {
-            recipesHTML += recipeToCardHTML(recipe);
-            if (key == 3) {
-                recipesHTML += '</div><div class="row row-cols-4 text-center">';
-            }
-        })
-        recipesHTML += '</div><';
-
+        $("#results-container").empty();
         $(".tt-loader").slideUp();
         $('#results-container').append(recipesHTML);
         $('#results-container').slideDown();

@@ -19,6 +19,7 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 	// API User
 	baseAPIURL := os.Getenv("DATA_APP_BASE_URL")
 
+	title := r.URL.Query().Get("title")
 	bMinStr := r.URL.Query().Get("bMin")
 	bMaxStr := r.URL.Query().Get("bMax")
 	dMinStr := r.URL.Query().Get("dMin")
@@ -51,8 +52,8 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 		cuisineQuery += fmt.Sprintf("&q%d=%s", idx+1, c)
 	}
 
-	randomRecipesURL := fmt.Sprintf("%s/v1/recipes/filter?min_difficulty=%d&max_difficulty=%d&min_budget=%d&max_budget=%d&max_results=%d%s",
-		baseAPIURL, dMin, dMax, bMin, bMax, 40, cuisineQuery)
+	randomRecipesURL := fmt.Sprintf("%s/v1/recipes/filter?title_query=%s&min_difficulty=%d&max_difficulty=%d&min_budget=%d&max_budget=%d&max_results=%d%s",
+		baseAPIURL, title, dMin, dMax, bMin, bMax, 40, cuisineQuery)
 
 	req, reqErr := http.NewRequest("GET", randomRecipesURL, nil)
 	if reqErr != nil {
