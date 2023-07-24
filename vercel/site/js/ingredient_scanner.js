@@ -58,7 +58,7 @@ function findRecipes() {
         if (!recipes.length) {
             recipesHTML = "<h2>No recipes found. Please try with other filters</h2>"
         } else {
-            recipesHTML = '<div class="row row-cols-4 text-center">';
+            recipesHTML = '<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 text-center">';
             $.each(recipes, function (key, recipe) {
                 recipesHTML += recipeToCardHTML(recipe);
                 if (key == 3) {

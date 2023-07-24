@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"regexp"
 	"strings"
 
 	dac "github.com/xinsnake/go-http-digest-auth-client"
@@ -19,8 +20,12 @@ func QueryIngredients(w http.ResponseWriter, r *http.Request) {
 
 	ingredientsCSV := r.URL.Query().Get("ing")
 	query := ""
+
+	regex := regexp.MustCompile("[0-9|/|cups|cup|of|and|or]+")
 	for idx, i := range strings.Split(ingredientsCSV, ",") {
-		query += fmt.Sprintf("&q%d=%s", idx+1, strings.ReplaceAll(i, " ", "_"))
+		str := strings.TrimSpace(regex.ReplaceAllString(i, ""))
+
+		query += fmt.Sprintf("&q%d=%s", idx+1, strings.ReplaceAll(str, " ", "_"))
 	}
 
 	baseAPIURL := os.Getenv("DATA_APP_BASE_URL")
