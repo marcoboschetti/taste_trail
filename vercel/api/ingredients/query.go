@@ -6,6 +6,8 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"regexp"
+	"strings"
 
 	dac "github.com/xinsnake/go-http-digest-auth-client"
 )
@@ -53,9 +55,15 @@ func IngredientsQuery(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Response to client
-	ingredientsArr := make([]string, len(recipes.Data.Rows))
-	for idx, row := range recipes.Data.Rows {
-		ingredientsArr[idx] = row.Ingredient
+	ingredientsArr := []string{}
+
+	regex := regexp.MustCompile("([0-9]|/|cups|cup|of|and|or)")
+	for _, row := range recipes.Data.Rows {
+		str := strings.TrimSpace(regex.ReplaceAllString(row.Ingredient, ""))
+
+		if len(str) > 0 {
+			ingredientsArr = append(ingredientsArr, str)
+		}
 	}
 
 	jsonResp, err := json.Marshal(ingredientsArr)
