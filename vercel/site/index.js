@@ -4,6 +4,7 @@ $(document).ready(function () {
         moveToPage(page);
     };
 
+    showCookies();
     loadPageFromHash();
 });
 
@@ -37,4 +38,13 @@ function getUrlVars()
         vars[hash[0]] = hash[1];
     }
     return vars;
+}
+
+
+function showCookies(){
+    if (sessionStorage && !sessionStorage.getItem("tt-cookies")) {
+        var toastEl = [].slice.call(document.querySelectorAll('.toast'))[0]
+        new bootstrap.Toast(toastEl).show();
+        sessionStorage.setItem("tt-cookies", true);
+    }
 }
