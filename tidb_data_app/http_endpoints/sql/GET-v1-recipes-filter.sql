@@ -8,7 +8,7 @@ WHERE difficulty_level >= ${min_difficulty}
 	AND difficulty_level <= ${max_difficulty}
 	AND budget >= ${min_budget}
 	AND budget <= ${max_budget}
-  	AND (CHAR_LENGTH(${title_query}) = 0 OR LOWER(name) LIKE  CONCAT('%',LOWER(REPLACE(${title_query},' ','%')),'%') ) 
+  	AND ( (CHAR_LENGTH(${title_query}) = 0) OR (LOWER(name) LIKE CONCAT('%',LOWER(REPLACE(${title_query},' ','%')),'%')) ) 
   	AND LOWER(cuisine_type) IN (
       LOWER(${q1}),
       LOWER(${q2}),
@@ -23,7 +23,23 @@ WHERE difficulty_level >= ${min_difficulty}
       LOWER(${q11}),
       LOWER(${q12}),
       LOWER(${q13}),
-      LOWER(${q14})
+      LOWER(${q14}),
+      LOWER(${q15}),
+      LOWER(${q16}),
+      LOWER(${q17}),
+      LOWER(${q18}),
+      LOWER(${q19}),
+      LOWER(${q20}),
+      LOWER(${q21}),
+      LOWER(${q22}),
+      LOWER(${q23}),
+      LOWER(${q24}),
+      LOWER(${q25}),
+      LOWER(${q26}),
+      LOWER(${q27}),
+      LOWER(${q28}),
+      LOWER(${q29}),
+      LOWER(${q30})
   )
 ),
 sorted_recipes AS (

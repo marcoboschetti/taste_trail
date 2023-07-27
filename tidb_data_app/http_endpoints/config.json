@@ -123,6 +123,102 @@
         "default": ""
       },
       {
+        "name": "q15",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q16",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q17",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q18",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q19",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q20",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q21",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q22",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q23",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q24",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q25",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q26",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q27",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q28",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q29",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
+        "name": "q30",
+        "type": "string",
+        "required": 0,
+        "default": ""
+      },
+      {
         "name": "max_results",
         "type": "number",
         "required": 0,
@@ -133,6 +229,8 @@
       "timeout": 5000,
       "row_limit": 50
     },
+    "tag": "",
+    "batch_operation": 0,
     "sql_file": "sql/GET-v1-recipes-filter.sql",
     "type": "sql_endpoint",
     "return_type": "json"
@@ -157,6 +255,8 @@
       "timeout": 5000,
       "row_limit": 1
     },
+    "tag": "",
+    "batch_operation": 0,
     "sql_file": "sql/GET-v1-recipes-id.sql",
     "type": "sql_endpoint",
     "return_type": "json"
@@ -355,6 +455,8 @@
       "timeout": 5000,
       "row_limit": 50
     },
+    "tag": "",
+    "batch_operation": 0,
     "sql_file": "sql/GET-v1-recipes-ingredients-partial.sql",
     "type": "sql_endpoint",
     "return_type": "json"
@@ -499,6 +601,8 @@
       "timeout": 5000,
       "row_limit": 50
     },
+    "tag": "",
+    "batch_operation": 0,
     "sql_file": "sql/GET-v1-recipes-ingredients.sql",
     "type": "sql_endpoint",
     "return_type": "json"
@@ -523,6 +627,8 @@
       "timeout": 5000,
       "row_limit": 50
     },
+    "tag": "",
+    "batch_operation": 0,
     "sql_file": "sql/GET-v1-ingredients-query.sql",
     "type": "sql_endpoint",
     "return_type": "json"
@@ -540,6 +646,8 @@
       "timeout": 5000,
       "row_limit": 50
     },
+    "tag": "",
+    "batch_operation": 0,
     "sql_file": "sql/GET-v1-ingredients-count.sql",
     "type": "sql_endpoint",
     "return_type": "json"
@@ -570,6 +678,8 @@
       "timeout": 5000,
       "row_limit": 50
     },
+    "tag": "",
+    "batch_operation": 0,
     "sql_file": "sql/GET-v1-ingredients.sql",
     "type": "sql_endpoint",
     "return_type": "json"
@@ -594,6 +704,8 @@
       "timeout": 5000,
       "row_limit": 50
     },
+    "tag": "",
+    "batch_operation": 0,
     "sql_file": "sql/GET-v1-recipes-random.sql",
     "type": "sql_endpoint",
     "return_type": "json"
